@@ -12,44 +12,68 @@
 body { font-family: 'Mukta', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 body::after { content:''; position:fixed; bottom:-20%; right:-10%; width:60vw; height:60vh; background:radial-gradient(circle, var(--pooja-l) 0%, transparent 60%); filter:blur(100px); z-index:-1; pointer-events: none;}
 .hide { display: none !important; }
-.btn { padding: 12px 24px; border-radius: var(--r-sm); font-size: 16px; font-weight: 700; cursor: pointer; border: none; display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
-.btn-primary { background: var(--pooja); color: #000; }
+.btn { padding: 12px 24px; border-radius: var(--r-sm); font-size: 16px; font-weight: 700; cursor: pointer; border: none; display: inline-flex; justify-content: center; align-items: center; gap: 8px; transition: 0.3s; }
+.btn-primary { background: var(--pooja); color: #000; box-shadow: 0 4px 15px var(--pooja-l); }
 .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border2); }
 .inp { width: 100%; padding: 12px 16px; font-family: 'Mukta', sans-serif; font-size: 16px; border: 1px solid var(--border2); border-radius: var(--r-sm); background: rgba(0,0,0,0.5); color: var(--text); outline: none; }
 .badge { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: var(--r-pill); }
+
+/* MARQUEE */
 .marquee-bar { background: var(--csc); color: #fff; font-weight: 600; font-size: 14px; padding: 6px 0; overflow: hidden; white-space: nowrap; }
 .marquee-content { display: inline-block; animation: marquee 15s linear infinite; }
 @keyframes marquee { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
-.navbar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--glass); backdrop-filter: blur(20px); border-top: 1px solid var(--border); padding: 12px 20px; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
+
+/* NAVBAR (TOP) */
+.navbar { position: sticky; top: 0; background: var(--glass); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); padding: 12px 20px; z-index: 100; display: flex; justify-content: space-between; align-items: center; }
 .brand { font-family: 'Yatra One', cursive; font-size: 24px; display: flex; align-items: center; gap: 8px; }
 .brand-icon { font-size: 28px; max-height: 40px; border-radius: 8px; }
+
+/* HERO BANNER */
 .hero-banner { position: relative; width: 100%; height: 280px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(9,9,11,0.4), var(--bg)); }
 .hero-content { position: relative; z-index: 2; }
-.slogan-text { font-family: 'Yatra One', cursive; font-size: 24px; color: var(--pooja); }
-.sub-slogan { font-size: 14px; color: #fff; margin-top: 8px; }
-.container { max-width: 1200px; margin: 0 auto; padding: 20px 20px 100px; }
+.slogan-text { font-family: 'Yatra One', cursive; font-size: 32px; color: var(--pooja); text-shadow: 0 4px 20px rgba(0,0,0,0.8); }
+.sub-slogan { font-size: 16px; color: #fff; margin-top: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+/* MAIN CONTENT */
+.container { max-width: 1200px; margin: 0 auto; padding: 20px 20px 60px; }
 .section-title { font-family: 'Yatra One', cursive; font-size: 24px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
 .section-title::before { content: ''; width: 6px; height: 24px; background: var(--pooja); border-radius: 4px; }
-.notif-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
-.alert-box { background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--pooja); padding: 16px; border-radius: 0 var(--r-sm) var(--r-sm) 0; color: #fff; font-weight: 600; }
+.alert-box { background: rgba(245, 158, 11, 0.1); border-left: 4px solid var(--pooja); padding: 16px; border-radius: 0 var(--r-sm) var(--r-sm) 0; color: #fff; font-weight: 600; margin-bottom: 12px; }
+
+/* CATEGORY FILTERS */
 .cat-filters { display: flex; gap: 12px; margin-bottom: 24px; overflow-x: auto; scrollbar-width: none; padding-bottom: 8px; }
-.cat-pill { padding: 10px 20px; border-radius: var(--r-pill); border: 1px solid var(--border2); font-weight: 700; white-space: nowrap; cursor: pointer; }
+.cat-pill { padding: 10px 20px; border-radius: var(--r-pill); border: 1px solid var(--border2); font-weight: 700; white-space: nowrap; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.03); }
 .cat-pill.on { background: #fff; color: #000; }
-.search-inp { width: 100%; padding: 16px 16px 16px 48px; border-radius: var(--r-pill); background: var(--surface); border: 1px solid var(--border); color: #fff; margin-bottom: 24px; }
+.search-inp { width: 100%; padding: 16px 16px 16px 48px; border-radius: var(--r-pill); background: var(--surface); border: 1px solid var(--border); color: #fff; margin-bottom: 24px; background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="gray" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>'); background-repeat: no-repeat; background-position: 16px center; }
+
+/* PRODUCTS */
 .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
 .p-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; position: relative; }
 .p-img { width: 100%; height: 160px; object-fit: cover; }
 .p-img-ph { width: 100%; height: 160px; display: flex; align-items: center; justify-content: center; background: var(--surface2); font-size: 40px; opacity: 0.5; }
-.p-tag { position: absolute; top: 12px; left: 12px; z-index: 2; }
+.p-tag { position: absolute; top: 12px; left: 12px; z-index: 2; backdrop-filter: blur(4px); }
 .p-info { padding: 16px; flex: 1; display: flex; flex-direction: column; }
-.p-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.p-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; line-height: 1.2; }
 .p-desc { font-size: 14px; color: var(--text2); margin-bottom: 16px; flex: 1; }
 .p-price-row { display: flex; justify-content: space-between; align-items: flex-end; }
 .p-price { font-size: 24px; font-weight: 700; color: #fff; }
-.add-btn { width: 40px; height: 40px; border-radius: 12px; background: #fff; color: #000; border: none; font-size: 24px; font-weight: 600; cursor: pointer; }
-.floating-cart { position: fixed; bottom: 90px; right: 20px; background: var(--pooja); color: #000; padding: 12px 20px; border-radius: var(--r-pill); display: flex; align-items: center; gap: 12px; z-index: 90; cursor: pointer; }
-.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 999; display: flex; justify-content: flex-end; opacity: 0; pointer-events: none; transition: 0.3s; }
+.add-btn { width: 40px; height: 40px; border-radius: 12px; background: #fff; color: #000; border: none; font-size: 24px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 10px rgba(255,255,255,0.2); }
+
+/* OTHERS */
+.gallery-scroll { display: flex; gap: 16px; overflow-x: auto; padding-bottom: 16px; scrollbar-width: none; }
+.g-img { width: 250px; height: 160px; object-fit: cover; border-radius: var(--r); border: 1px solid var(--border); flex-shrink: 0; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
+.team-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r); padding: 20px; text-align: center; }
+.t-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 12px; border: 3px solid var(--pooja); }
+.review-card { background: var(--surface); padding: 16px; border-radius: var(--r-sm); border: 1px solid var(--border); margin-bottom: 12px; }
+.rating-btn { background: none; border: none; font-size: 24px; color: var(--border2); cursor: pointer; }
+.rating-btn.active { color: #fbbf24; }
+footer { background: var(--surface); border-top: 1px solid var(--border); padding: 40px 20px; text-align: center; }
+
+/* CART & BILL UI */
+.floating-cart { position: fixed; bottom: 30px; right: 20px; background: var(--pooja); color: #000; padding: 12px 20px; border-radius: var(--r-pill); display: flex; align-items: center; gap: 12px; z-index: 90; cursor: pointer; box-shadow: 0 10px 40px var(--pooja-l); }
+.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 999; display: flex; justify-content: flex-end; opacity: 0; pointer-events: none; transition: 0.3s; backdrop-filter: blur(8px); }
 .cart-overlay.open { opacity: 1; pointer-events: all; }
 .cart-drawer { width: 100%; max-width: 450px; background: var(--surface); height: 100%; display: flex; flex-direction: column; transform: translateX(100%); transition: 0.3s; }
 .cart-overlay.open .cart-drawer { transform: translateX(0); }
@@ -60,8 +84,6 @@ body::after { content:''; position:fixed; bottom:-20%; right:-10%; width:60vw; h
 .c-btn { background: none; border: none; color: var(--text); font-size: 18px; }
 .cart-footer { padding: 24px; border-top: 1px solid var(--border); background: var(--bg); display:flex; flex-direction:column; gap:12px; }
 .bill-receipt { background: #fff; color: #000; padding: 24px; border-radius: var(--r); margin-bottom: 20px; }
-.b-head { text-align: center; border-bottom: 2px dashed #ccc; padding-bottom: 16px; margin-bottom: 16px; }
-.b-row { display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 4px; }
 .b-status { font-weight: 800; padding: 4px 12px; border-radius: 4px; display: inline-block; margin-top: 8px; font-size: 12px; }
 .status-pending { background: #fee2e2; color: #dc2626; border: 1px solid #f87171; }
 .status-approved { background: #dcfce7; color: #16a34a; border: 1px solid #4ade80; }
@@ -69,13 +91,36 @@ body::after { content:''; position:fixed; bottom:-20%; right:-10%; width:60vw; h
 .b-signature img { max-height: 60px; mix-blend-mode: multiply; }
 #toast { position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-20px); background: #fff; color: #000; padding: 14px 28px; border-radius: var(--r-pill); font-weight: 700; opacity: 0; transition: 0.3s; z-index: 10000; pointer-events: none; }
 #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-@media(min-width: 769px){ .navbar { top: 0; bottom: auto; } .container, footer { padding-bottom: 40px; } .floating-cart { bottom: 30px; } #toast { top: auto; bottom: 30px; transform: translateX(-50%) translateY(20px); } }
+
+/* ── MOBILE RESPONSIVE (CATEGORY BOTTOM NAV) ── */
+@media(max-width: 768px){
+  /* Keep Navbar Top */
+  .navbar { top: 0; }
+  
+  /* Category Tabs as Bottom Bar */
+  .cat-filters {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    margin: 0;
+    padding: 12px 16px;
+    z-index: 100;
+    border-top: 1px solid var(--border);
+    justify-content: flex-start;
+  }
+  
+  .container { padding-bottom: 80px; }
+  footer { padding-bottom: 100px; } /* Space for bottom nav */
+  .floating-cart { bottom: 80px; } /* Lift cart above category tab */
+}
 </style>
 </head>
 <body>
 
 <div class="marquee-bar" id="ui-marquee-wrap"><div class="marquee-content" id="ui-marquee"></div></div>
 
+<!-- TOP NAVBAR -->
 <nav class="navbar">
   <div class="brand"><span id="ui-logo-wrap"></span><div id="ui-shop-name"></div></div>
   <button class="btn btn-outline" style="padding: 6px 12px; font-size: 14px;" onclick="toggleBills()">🧾 मेरे बिल</button>
@@ -90,9 +135,11 @@ body::after { content:''; position:fixed; bottom:-20%; right:-10%; width:60vw; h
 </div>
 
 <main class="container">
-  <div id="ui-notifications" class="notif-container" style="margin-top: 20px;"></div>
-  <input type="text" id="search-input" class="search-inp" placeholder="सर्च करें (पैन कार्ड, आटा, अगरबत्ती...)" oninput="renderUser()">
+  <div id="ui-notifications" style="margin-top: 20px;"></div>
   
+  <input type="text" id="search-input" class="search-inp" placeholder="सर्च करें (पैन कार्ड, आटा, अगरबत्ती...)" oninput="renderUser()" style="margin-top: 10px;">
+  
+  <!-- BOTTOM CATEGORY BAR (ON MOBILE) -->
   <div class="cat-filters">
     <div class="cat-pill on" onclick="filterItems('all', this)">सभी सामग्री</div>
     <div class="cat-pill" onclick="filterItems('csc', this)">🏛️ CSC सर्विस</div>
@@ -102,39 +149,80 @@ body::after { content:''; position:fixed; bottom:-20%; right:-10%; width:60vw; h
 
   <div class="product-grid" id="product-grid"></div>
 
+  <!-- GALLERY SECTION -->
+  <div id="gallery-container" class="hide" style="margin-top: 40px;">
+    <div class="section-title">दुकान की झलक</div>
+    <div class="gallery-scroll" id="ui-gallery"></div>
+  </div>
+
+  <!-- TEAM SECTION -->
+  <div style="margin-top: 40px;" id="team-container" class="hide">
+    <div class="section-title">हमारी टीम (Meet Us)</div>
+    <div class="team-grid" id="team-grid"></div>
+  </div>
+
+  <!-- ABOUT SECTION -->
   <div style="margin-top: 40px;">
     <div class="section-title">दुकान के बारे में</div>
-    <div style="background:var(--surface2); padding:20px; border-radius:16px; color:var(--text2)" id="ui-about"></div>
+    <div style="background:var(--surface2); padding:32px; border-radius:16px; color:var(--text2); line-height:1.6;" id="ui-about"></div>
+  </div>
+
+  <!-- REVIEWS SECTION -->
+  <div style="margin-top: 40px;">
+    <div class="section-title">ग्राहकों की राय (Reviews)</div>
+    <div id="ui-reviews-list"></div>
+    <div style="background:var(--surface); border:1px solid var(--border); padding:24px; border-radius:16px; margin-top:20px;">
+      <h4 style="margin-bottom: 12px;">अपना अनुभव साझा करें</h4>
+      <input type="text" id="rev-name" class="inp" placeholder="आपका नाम" style="margin-bottom:12px;">
+      <div style="margin-bottom:12px;" id="star-selector">
+        <button class="rating-btn" onclick="setRating(1)">★</button>
+        <button class="rating-btn" onclick="setRating(2)">★</button>
+        <button class="rating-btn" onclick="setRating(3)">★</button>
+        <button class="rating-btn" onclick="setRating(4)">★</button>
+        <button class="rating-btn" onclick="setRating(5)">★</button>
+      </div>
+      <textarea id="rev-text" class="inp" placeholder="आपकी राय..." style="height:60px; margin-bottom:12px;"></textarea>
+      <button class="btn btn-outline" onclick="submitReview()">रिव्यु पोस्ट करें</button>
+    </div>
   </div>
 </main>
 
+<footer>
+  <div style="font-family:'Yatra One',cursive; font-size:24px; margin-bottom:12px;" id="ui-footer-name"></div>
+  <div style="font-size:15px; color:var(--text2); margin-bottom:20px;" id="ui-address"></div>
+  <a id="ui-map" href="#" target="_blank" class="btn btn-outline" style="font-size:14px">Google Map पर देखें 🗺️</a>
+</footer>
+
+<!-- FLOATING CART -->
 <div class="floating-cart hide" id="floating-cart" onclick="toggleCart()">
   <div style="display:flex; flex-direction:column; line-height:1.1;"><span id="fc-count" style="font-size:13px; font-weight:700">0</span><span id="fc-total" style="font-size:22px; font-weight:800">₹0</span></div>
-  <div>🛒</div>
+  <div style="font-size:24px;">🛒</div>
 </div>
 
+<!-- CART DRAWER -->
 <div class="cart-overlay" id="cart-overlay" onclick="if(event.target===this) toggleCart()">
   <div class="cart-drawer">
-    <div class="cart-header">आपका कार्ट <button onclick="toggleCart()" style="background:none;border:none;color:white;font-size:20px;">✕</button></div>
+    <div class="cart-header">आपका कार्ट <button onclick="toggleCart()" style="background:none;border:none;color:white;font-size:24px;cursor:pointer">✕</button></div>
     <div class="cart-items" id="cart-items"></div>
     <div class="cart-footer">
-      <div style="font-size:20px; font-weight:bold;">कुल: <span id="cart-grand-total" style="color:var(--pooja)">₹0</span></div>
-      <button class="btn btn-primary" style="width:100%; padding:14px;" onclick="requestBill()">🧾 पक्का बिल जेनरेट करें</button>
+      <div style="font-size:20px; font-weight:bold; margin-bottom:10px;">कुल: <span id="cart-grand-total" style="color:var(--pooja)">₹0</span></div>
+      <button class="btn btn-primary" style="width:100%; padding:14px; margin-bottom:8px;" onclick="requestBill()">🧾 पक्का बिल जेनरेट करें</button>
       <button class="btn" style="width:100%; padding:14px; background:#25D366; color:#fff;" onclick="sendOrder()">💬 WhatsApp पर भेजें</button>
     </div>
   </div>
 </div>
 
+<!-- MY BILLS DRAWER -->
 <div class="cart-overlay" id="bills-overlay" onclick="if(event.target===this) toggleBills()">
   <div class="cart-drawer" style="background:#f4f4f5">
-    <div class="cart-header" style="background:var(--surface); color:var(--text)">मेरे बिल <button onclick="toggleBills()" style="background:none;border:none;color:var(--text);font-size:20px;">✕</button></div>
+    <div class="cart-header" style="background:var(--surface); color:var(--text)">मेरे बिल <button onclick="toggleBills()" style="background:none;border:none;color:var(--text);font-size:24px;cursor:pointer">✕</button></div>
     <div class="cart-items" id="bills-items" style="color:#000;"></div>
   </div>
 </div>
 
 <div id="toast"></div>
 
-<!-- 🔴 FIREBASE SDK (COMPAT VERSION) -->
+<!-- FIREBASE SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 
@@ -156,12 +244,13 @@ const db = firebase.database();
 
 var S = {
   shopName: 'श्री राम', shopSub: 'स्टोर एवं CSC', shopLogo: '🙏', shopLogoImg: '', phone: '910000000000',
-  marquee: '🎉 स्वागत है!', heroTitle: 'भानपुर की डिजिटल दुकान', heroSub: 'सब एक जगह!', heroImg: '',
-  aboutTxt: '', address: '', adminSign: '',
-  items: [], cart: [], orders: [], notifs: []
+  marquee: '🎉 500₹ के राशन पर 5% छूट! आज ही आर्डर करें।', heroTitle: 'भानपुर की अपनी डिजिटल दुकान', heroSub: 'किराना, पूजा सामग्री और CSC सर्विस - सब एक जगह!', heroImg: '',
+  aboutTxt: 'हम भानपुर और बुढ़ार के ग्राहकों को सबसे शुद्ध सामान और सबसे तेज़ सरकारी सेवाएँ देने के लिए प्रतिबद्ध हैं।', address: '📍 मुख्य मंदिर के सामने, भानपुर, बुढ़ार (M.P)', mapLink: '', adminSign: '',
+  items: [], cart: [], orders: [], notifs: [], gallery: [], team: [], reviews: []
 };
 
 var currentFilter = 'all';
+var currentRating = 0;
 
 function $(id){ return document.getElementById(id); }
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
@@ -174,64 +263,76 @@ function loadDataFromAPI() {
   db.ref('dukan_data').on('value', (snapshot) => {
     const data = snapshot.val();
     if (data) {
-      Object.assign(S, data); // अपडेटेड डाटा सर्वर से लें
+      Object.assign(S, data);
+      // Ensure arrays exist
+      S.items = S.items || []; S.cart = S.cart || []; S.orders = S.orders || []; S.notifs = S.notifs || [];
+      S.gallery = S.gallery || []; S.team = S.team || []; S.reviews = S.reviews || [];
     } else {
-      saveDataToAPI(); // अगर डाटाबेस नया है, तो डिफ़ॉल्ट डाटा डालें
+      saveDataToAPI();
     }
     initUI();
   });
 }
-
-function saveDataToAPI() {
-  db.ref('dukan_data').set(S);
-}
+function saveDataToAPI() { db.ref('dukan_data').set(S); }
 // ==========================================
 
 function initUI() {
-  $('ui-logo-wrap').innerHTML = S.shopLogoImg ? `<img src="${S.shopLogoImg}" class="brand-icon">` : `<div class="brand-icon">${S.shopLogo}</div>`;
+  $('ui-logo-wrap').innerHTML = S.shopLogoImg ? `<img src="${S.shopLogoImg}" class="brand-icon" style="background:#fff">` : `<div class="brand-icon">${S.shopLogo}</div>`;
   $('ui-shop-name').innerHTML = `${esc(S.shopName)} <span style="color:var(--pooja)">${esc(S.shopSub)}</span>`;
+  $('ui-footer-name').textContent = `${esc(S.shopName)} ${esc(S.shopSub)}`;
+  $('ui-address').textContent = S.address;
+  $('ui-map').href = S.mapLink || '#';
+  
   if(S.marquee) { $('ui-marquee-wrap').classList.remove('hide'); $('ui-marquee').textContent = S.marquee; } else { $('ui-marquee-wrap').classList.add('hide'); }
   if(S.heroImg) { $('ui-hero-bg').style.backgroundImage = `url('${S.heroImg}')`; }
+  
   $('ui-tagline').textContent = S.heroTitle; $('ui-subtag').textContent = S.heroSub; $('ui-about').textContent = S.aboutTxt;
-  $('ui-notifications').innerHTML = (S.notifs || []).map(n => `<div class="alert-box">🔔 ${esc(n)}</div>`).join('');
-  renderUser();
-  if($('bills-overlay').classList.contains('open')) renderUserBills(); // Update bills UI if open
+  $('ui-notifications').innerHTML = S.notifs.map(n => `<div class="alert-box">🔔 ${esc(n)}</div>`).join('');
+  
+  if(S.gallery.length > 0) { $('gallery-container').classList.remove('hide'); $('ui-gallery').innerHTML = S.gallery.map(img => `<img src="${img}" class="g-img">`).join(''); } else $('gallery-container').classList.add('hide');
+  if(S.team.length > 0) { $('team-container').classList.remove('hide'); $('team-grid').innerHTML = S.team.map(t => `<div class="team-card"><img src="${t.img}" class="t-img"><div style="font-size:18px;font-weight:700">${esc(t.name)}</div><div style="font-size:13px;color:var(--pooja);font-weight:600;text-transform:uppercase">${esc(t.role)}</div></div>`).join(''); } else $('team-container').classList.add('hide');
+  
+  renderUser(); renderReviews();
+  if($('bills-overlay').classList.contains('open')) renderUserBills();
 }
 
 function renderUser() {
   let term = $('search-input').value.toLowerCase().trim();
-  let filtered = currentFilter !== 'all' ? (S.items||[]).filter(i => i.type === currentFilter) : (S.items||[]);
-  if(term) filtered = filtered.filter(i => i.name.toLowerCase().includes(term));
+  let filtered = currentFilter !== 'all' ? S.items.filter(i => i.type === currentFilter) : S.items;
+  if(term) filtered = filtered.filter(i => i.name.toLowerCase().includes(term) || i.desc.toLowerCase().includes(term));
   
   $('product-grid').innerHTML = filtered.map(i => {
-    let tag = i.type === 'csc' ? `<span class="badge" style="background:var(--csc);color:#fff">🏛️ CSC</span>` : `<span class="badge" style="background:var(--kirana);color:#000">सामान</span>`;
+    let tag = i.type === 'csc' ? `<span class="badge" style="background:var(--csc);color:#fff">🏛️ CSC</span>` : (i.type === 'pooja' ? `<span class="badge" style="background:var(--pooja);color:#000">🛕 पूजा</span>` : `<span class="badge" style="background:var(--kirana);color:#000">🌾 किराना</span>`);
     let price = i.type === 'csc' ? (+i.govFee||0) + (+i.srvCharge||0) : i.price;
-    let btnHtml = (i.type !== 'csc' && i.qty <= 0) ? `<div style="color:var(--red)">स्टॉक ख़त्म</div>` : `<button class="add-btn" onclick="addToCart(${i.id}, '${esc(i.name)}', ${price}, '${i.type}')">+</button>`;
-    return `<div class="p-card"><div style="position:relative">${i.img?`<img src="${i.img}" class="p-img">`:`<div class="p-img-ph">📦</div>`}<div class="p-tag">${tag}</div></div><div class="p-info"><div class="p-name">${esc(i.name)}</div><div class="p-desc">${esc(i.desc)}</div><div class="p-price-row"><div><div class="p-price">₹${price}</div></div>${btnHtml}</div></div></div>`;
-  }).join('') || '<div style="grid-column:1/-1;text-align:center;color:gray">सामान नहीं मिला।</div>';
+    let isOOS = (i.type !== 'csc' && i.qty <= 0);
+    let btnHtml = isOOS ? `<div style="color:var(--red);font-weight:700">स्टॉक ख़त्म</div>` : `<button class="add-btn" onclick="addToCart(${i.id}, '${esc(i.name)}', ${price}, '${i.type}')">+</button>`;
+    
+    return `<div class="p-card" style="${isOOS?'opacity:0.6':''}"><div style="position:relative">${i.img?`<img src="${i.img}" class="p-img">`:`<div class="p-img-ph">📦</div>`}<div class="p-tag">${tag}</div></div><div class="p-info"><div class="p-name">${esc(i.name)}</div><div class="p-desc">${esc(i.desc)}</div><div class="p-price-row"><div><div class="p-price">₹${price}</div></div>${btnHtml}</div></div></div>`;
+  }).join('') || '<div style="grid-column:1/-1;text-align:center;color:var(--text3);padding:40px;">सामान नहीं मिला।</div>';
   updateCartUI();
 }
 
 function filterItems(type, btn) { currentFilter = type; document.querySelectorAll('.cat-pill').forEach(t => t.classList.remove('on')); btn.classList.add('on'); renderUser(); }
 function toggleCart() { $('cart-overlay').classList.toggle('open'); }
 function addToCart(id, name, price, type) {
-  S.cart = S.cart || [];
   let exist = S.cart.find(c => c.id === id);
-  if(exist) exist.qty++; else S.cart.push({ id, name, price, qty: 1, type });
+  if(exist) { let item = S.items.find(i=>i.id===id); if(type !== 'csc' && exist.qty >= item.qty) return toast("स्टॉक ख़त्म!"); exist.qty++; } 
+  else S.cart.push({ id, name, price, qty: 1, type });
   toast("कार्ट में जुड़ गया!"); updateCartUI();
 }
 function updateCartQty(id, delta) {
   let c = S.cart.find(c => c.id === id); if(!c) return;
-  c.qty += delta; if(c.qty <= 0) S.cart = S.cart.filter(x => x.id !== id);
+  let newQty = c.qty + delta;
+  if(newQty <= 0) S.cart = S.cart.filter(x => x.id !== id);
+  else { let item = S.items.find(i=>i.id===id); if(c.type !== 'csc' && newQty > item.qty) return toast("स्टॉक ख़त्म!"); c.qty = newQty; }
   updateCartUI();
 }
 function updateCartUI() {
-  S.cart = S.cart || [];
   let totItems = 0, gTotal = 0;
   $('cart-items').innerHTML = S.cart.map(c => {
     totItems += c.qty; gTotal += (c.price * c.qty);
-    return `<div class="c-item"><div style="flex:1;font-weight:bold">${c.name}<div style="color:var(--pooja)">₹${c.price}</div></div><div class="c-ctrl"><button class="c-btn" onclick="updateCartQty(${c.id}, -1)">-</button><span style="font-weight:700;width:24px;text-align:center">${c.qty}</span><button class="c-btn" onclick="updateCartQty(${c.id}, 1)">+</button></div></div>`;
-  }).join('') || '<div style="text-align:center;color:gray;margin-top:20px">कार्ट खाली है।</div>';
+    return `<div class="c-item"><div style="flex:1"><div style="font-weight:700;font-size:16px">${c.name}</div><div style="color:var(--pooja);font-weight:600">₹${c.price}</div></div><div class="c-ctrl"><button class="c-btn" onclick="updateCartQty(${c.id}, -1)">-</button><span style="font-weight:700;width:24px;text-align:center">${c.qty}</span><button class="c-btn" onclick="updateCartQty(${c.id}, 1)">+</button></div></div>`;
+  }).join('') || '<div style="text-align:center;color:var(--text3);margin-top:20px">कार्ट खाली है।</div>';
   
   $('cart-grand-total').textContent = '₹' + gTotal;
   if(totItems > 0) { $('floating-cart').classList.remove('hide'); $('fc-count').textContent = totItems + ' आइटम'; $('fc-total').textContent = '₹' + gTotal; } 
@@ -239,37 +340,51 @@ function updateCartUI() {
 }
 
 function sendOrder() {
-  if(!S.cart || S.cart.length === 0) return;
-  let text = "🙏 *नया आर्डर*\n"; let total = 0;
+  if(S.cart.length === 0) return;
+  let text = "🙏 *जय श्री राम! नया आर्डर*\n-----------------------------------\n"; let total = 0;
   S.cart.forEach(c => { text += `▪️ ${c.qty}x ${c.name} (₹${c.price * c.qty})\n`; total += (c.price * c.qty); });
-  window.open(`https://wa.me/${S.phone}?text=${encodeURIComponent(text + `\n*कुल बिल: ₹${total}*`)}`);
+  text += `-----------------------------------\n*🧾 कुल बिल: ₹${total}*\n\n_कृपया मेरा आर्डर कन्फर्म करें._`;
+  window.open(`https://wa.me/${S.phone}?text=${encodeURIComponent(text)}`);
   S.cart = []; updateCartUI(); toggleCart();
 }
 
 function requestBill() {
-  if(!S.cart || S.cart.length === 0) return;
+  if(S.cart.length === 0) return;
   let uName = prompt("बिल के लिए अपना नाम दर्ज करें:"); if(!uName) return;
   let phone = prompt("अपना मोबाइल नंबर दर्ज करें (वैकल्पिक):") || "";
   let total = S.cart.reduce((s,c) => s + (c.price * c.qty), 0);
   
-  S.orders = S.orders || [];
   let newOrder = { id: Date.now(), date: new Date().toLocaleDateString('hi-IN'), user: uName, phone: phone, items: S.cart, total: total, status: 'pending' };
   S.orders.unshift(newOrder); 
   S.cart = []; updateCartUI(); toggleCart(); 
   
-  saveDataToAPI(); // 🔴 Saving back to Firebase
+  saveDataToAPI(); 
   toast("बिल रिक्वेस्ट भेज दी गई है!"); toggleBills();
 }
 
 function toggleBills() { $('bills-overlay').classList.toggle('open'); if($('bills-overlay').classList.contains('open')) renderUserBills(); }
 
 function renderUserBills() {
-  S.orders = S.orders || [];
+  if(S.orders.length === 0) { $('bills-items').innerHTML = `<div style="text-align:center; padding:20px;">कोई बिल नहीं है।</div>`; return; }
+  let shopLogoHtml = S.shopLogoImg ? `<img src="${S.shopLogoImg}" style="max-height:50px;margin-bottom:8px">` : `<div style="font-size:32px;margin-bottom:8px;">${S.shopLogo}</div>`;
   $('bills-items').innerHTML = S.orders.map(o => {
     let stat = o.status === 'pending' ? `<span class="b-status status-pending">अमान्य (Pending Approval)</span>` : `<span class="b-status status-approved">✓ मान्य (Approved)</span>`;
-    let sign = (o.status === 'approved' && S.adminSign) ? `<div class="b-signature"><img src="${S.adminSign}"><p>Authorized Signatory</p></div>` : ``;
-    return `<div class="bill-receipt"><div class="b-head"><div style="font-family:'Yatra One',cursive;font-size:20px">${S.shopName}</div></div><div class="b-row"><b>बिल #${o.id.toString().slice(-5)}</b><span>${o.date}</span></div><div class="b-row" style="margin-bottom:12px;color:gray">ग्राहक: ${o.user}</div><div style="border-bottom:1px solid #ccc;padding-bottom:8px;margin-bottom:8px;">${o.items.map(i=>`<div class="b-row"><span>${i.qty}x ${i.name}</span><span>₹${i.price*i.qty}</span></div>`).join('')}</div><div class="b-row" style="font-weight:bold;font-size:18px"><span>कुल:</span><span>₹${o.total}</span></div><div style="text-align:center">${stat}</div>${sign}</div>`;
-  }).join('') || '<div style="text-align:center;padding:20px;">कोई बिल नहीं है।</div>';
+    let sign = (o.status === 'approved' && S.adminSign) ? `<div class="b-signature"><img src="${S.adminSign}"><p style="font-size:12px;color:#555;border-top:1px solid #ccc;display:inline-block;padding-top:4px;">Authorized Signatory</p></div>` : (o.status === 'approved' ? `<div class="b-signature"><p style="font-weight:bold; color:#16a34a">Approved by Admin</p></div>` : ``);
+    return `<div class="bill-receipt"><div style="text-align:center;border-bottom:2px dashed #ccc;padding-bottom:16px;margin-bottom:16px">${shopLogoHtml}<div style="font-family:'Yatra One',cursive;font-size:24px">${esc(S.shopName)} ${esc(S.shopSub)}</div><div style="font-size:12px;color:#555">${esc(S.address)}</div></div><div style="display:flex;justify-content:space-between;font-weight:bold;margin-bottom:12px"><span>बिल #${o.id.toString().slice(-5)}</span><span>${o.date}</span></div><div style="font-size:12px;color:#555;margin-bottom:16px">ग्राहक: ${esc(o.user)} ${o.phone?' | '+esc(o.phone):''}</div><div style="border-bottom:1px solid #ccc;padding-bottom:8px;margin-bottom:8px;">${o.items.map(i=>`<div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px"><span>${i.qty}x ${i.name}</span><span>₹${i.price*i.qty}</span></div>`).join('')}</div><div style="display:flex;justify-content:space-between;font-weight:800;font-size:18px"><span>कुल रकम:</span><span>₹${o.total}</span></div><div style="text-align:center">${stat}</div>${sign}</div>`;
+  }).join('');
+}
+
+function setRating(r) { currentRating = r; document.querySelectorAll('.rating-btn').forEach((b, i) => i<r ? b.classList.add('active') : b.classList.remove('active')); }
+function submitReview() {
+  let name = $('rev-name').value.trim(), text = $('rev-text').value.trim();
+  if(!name || currentRating === 0 || !text) return toast("नाम, रेटिंग और राय अनिवार्य है!");
+  S.reviews.push({ id: Date.now(), name, rating: currentRating, text });
+  saveDataToAPI(); toast("रिव्यु जुड़ गया! धन्यवाद।");
+  $('rev-name').value = ''; $('rev-text').value = ''; setRating(0);
+}
+function renderReviews() {
+  if(S.reviews.length === 0) { $('ui-reviews-list').innerHTML = `<div style="color:var(--text3)">अभी तक कोई रिव्यु नहीं है।</div>`; return; }
+  $('ui-reviews-list').innerHTML = S.reviews.map(r => `<div class="review-card"><div style="color:#fbbf24;font-size:18px;margin-bottom:4px">${"★".repeat(r.rating) + "☆".repeat(5-r.rating)}</div><div style="font-weight:700;margin-bottom:4px">${esc(r.name)}</div><div style="color:var(--text2);font-size:14px">${esc(r.text)}</div></div>`).reverse().join('');
 }
 
 loadDataFromAPI(); // App Starts Here
